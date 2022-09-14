@@ -1,0 +1,48 @@
+body {
+    height: 100vh;
+}
+
+/* form */
+
+.form-container {
+    background-color: #FFC801;
+    height: 60vh;
+}
+
+/* inputs */
+
+input {
+    background-color: white;
+    padding: 8px 56px;
+    border-radius: 25px;
+    border: none;
+}
+
+/* icon */
+
+.icon {
+    background-color: white;
+    border-radius: 50%;
+    height: 39px;
+    width: 40px;
+  
+}
+
+mat-icon {
+    font-size: 33px;
+    position: relative;
+    left: 4px;
+    top: 3px;
+    cursor: pointer;
+}
+
+/* card */
+
+.example-card {
+    max-width: 400px;
+  }
+  
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }

@@ -1,0 +1,40 @@
+<body>
+    <div class="form-container">
+        <form [formGroup]="FormGroup" class="example-form d-flex justify-content-center">
+            <div class="sesrch-bar mt-5 mb-5 d-flex" appearance="fill">
+                <input formControlName="search">    
+                <div class="icon"><mat-icon (click)="searchCity(FormGroup)">search</mat-icon></div>         
+            </div>
+        </form>
+        <div *ngFor="let items of forcast">
+            <div class="carousel" *ngFor ="let in of counter(5); let i = index">
+                <li>{{items.Dates[i].Date}}</li>
+                <li>{{items.DailyForecasts[i].Temperature.Maximum.Value}}</li> 
+                <li>{{items.DailyForecasts[i].Temperature.Minimum.Value}}</li>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <mat-card class="example-card">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Shiba Inu</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card>
+        </div>
+
+    </div>
+</body>
+

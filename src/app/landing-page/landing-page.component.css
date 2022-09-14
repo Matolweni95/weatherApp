@@ -1,0 +1,29 @@
+img {
+    height: 100vh;
+}
+
+button {
+    background-color: #F2B705;
+    border: none;
+    color: white;
+    padding: 15px 50px;
+    font-size: 20px;
+}
+
+.sub {
+    color: #6E758E;
+}
+
+.main {
+    color: #323650;
+}
+
+h2 {
+    font-size: 100px;
+    line-height: 70px;
+}
+
+h3 {
+    font-size: 80px;
+}
+
