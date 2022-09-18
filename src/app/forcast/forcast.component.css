@@ -4,6 +4,11 @@ body {
 
 /* form */
 
+.sesrch-bar {
+    display: flex;
+    gap: 15px;
+}
+
 .form-container {
     background-color: #FFC801;
     height: 60vh;
@@ -39,10 +44,49 @@ mat-icon {
 /* card */
 
 .example-card {
-    max-width: 400px;
-  }
+    min-width: 680px;
+}
+
+.title {
+    position: relative;
+    right: 60px;
+}
   
 .example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
-  }
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+img {
+    height:  190px;
+    position: relative;
+    bottom: 60px;
+    right: 50px;
+}
+
+.temp {
+    font-size: 58px;
+    position: relative;
+    left: -85px;
+    bottom: 5px;
+} 
+
+.temp-container {
+    height: 90px;
+}
+
+.items {
+    padding-top: 12px;
+    border-top: 1px solid rgba(0,0,0,.15);
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.feel {
+    font-size: 18px;
+}

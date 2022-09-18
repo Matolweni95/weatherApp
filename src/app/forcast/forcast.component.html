@@ -1,7 +1,7 @@
 <body>
     <div class="form-container">
         <form [formGroup]="FormGroup" class="example-form d-flex justify-content-center">
-            <div class="sesrch-bar mt-5 mb-5 d-flex" appearance="fill">
+            <div class="sesrch-bar mt-5 mb-5" appearance="fill">
                 <input formControlName="search">    
                 <div class="icon"><mat-icon (click)="searchCity(FormGroup)">search</mat-icon></div>         
             </div>
@@ -11,27 +11,79 @@
                 <li>{{items.Dates[i].Date}}</li>
                 <li>{{items.DailyForecasts[i].Temperature.Maximum.Value}}</li> 
                 <li>{{items.DailyForecasts[i].Temperature.Minimum.Value}}</li>
+                <img src = "assets/icons/{{items.DailyForecasts[i].Day.Icon}}.svg">
             </div>
         </div>
         <div class="container d-flex justify-content-center">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>Shiba Inu</mat-card-title>
-                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-                <mat-card-content>
-                  <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
+            <mat-card  class="example-card">
+                <div class="d-flex justify-content-around">
+                  <div class="title">
+                    <div class="date-text">
+                      <h3 class="current mb-0">Current Weather</h3>
+                      <h2>{{current_time}}PM</h2>
+                    </div>
+                    <div class="temp-container d-flex">
+                      <div class="weatherIcon">
+                        <img src= "assets/icons/6.svg">
+                      </div>
+                      <div class="temperature">
+                        <p class="temp">33°</p>
+                      </div>
+                      
+                    </div>
+                    <p>Cloudy</p>
+                  </div>
+                  <div class="feel">
+                    <p>Real Feel: 33°</p>
+                    <p>Shade Feel: 20°</p>
+                  </div>
+                </div>
+                <div class="item-div d-flex justify-content-between">
+                  <div class="details">
+                    <div class="items">
+                      <p>Max UV Index</p>
+                      <p>1 Low</p>
+                    </div>
+                    <div class="items">
+                      <p>Wind</p>
+                      <p>W 11 km/h</p>
+                    </div>
+                    <div class="items">
+                      <p>Wind Gusts</p>
+                      <p>12 km/h</p>
+                    </div>
+                    <div class="items">
+                      <p>Humidity</p>
+                      <p>72%</p>
+                    </div>
+                    <div class="items">
+                      <p>Indoor Humidity</p>
+                      <p>72% (Slightly Humid)</p>
+                    </div>
+                  </div>
+                  <div class="more-detail">
+                    <div class="items">
+                      <p>Dew Point</p>
+                      <p>15°C</p>
+                    </div>
+                    <div class="items">
+                      <p>Pressure</p>
+                      <p>↔1010 mb</p>
+                    </div>
+                    <div class="items">
+                      <p>Cloud Cover</p>
+                      <p>80%</p>
+                    </div>
+                    <div class="items">
+                      <p>Visibility</p>
+                      <p>16 km</p>
+                    </div>
+                    <div class="items">
+                      <p>Cloud Ceiling</p>
+                      <p>700m</p>
+                    </div>
+                  </div>
+                </div>
               </mat-card>
         </div>
 

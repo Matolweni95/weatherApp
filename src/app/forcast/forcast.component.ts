@@ -29,6 +29,11 @@ export class ForcastComponent implements OnInit {
   dates:any = [];
   setkey: any;
 
+  //time
+
+  date = new Date();
+  current_time = this.date.getHours() +":"+this.date.getMinutes()
+
   //counter for inner loop to get to the dates and temperatures
   counter(i: number) {
     return new Array(i);
@@ -76,6 +81,7 @@ export class ForcastComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }
