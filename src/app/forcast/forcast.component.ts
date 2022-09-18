@@ -16,9 +16,11 @@ export class ForcastComponent implements OnInit {
 
     this.FormGroup = this.fb.group({
       search: ['', Validators.required], 
-      });
-
+      init: ['Cape Town', Validators.required]
+    });
   }
+
+  showMe!: boolean;
 
   city:any;
   newDate = {};
@@ -30,7 +32,6 @@ export class ForcastComponent implements OnInit {
   setkey: any;
 
   //time
-
   date = new Date();
   current_time = this.date.getHours() +":"+this.date.getMinutes()
 
@@ -38,17 +39,17 @@ export class ForcastComponent implements OnInit {
   counter(i: number) {
     return new Array(i);
   }
-  
+
   //function to search for city
-  async searchCity (FormGroup: { value:{ search:any }}){
-    this.city = FormGroup.value.search
+  async searchCity (value: string){
+    this.city = value;
     this.http.q = this.city;
     this.http.getCitykey().subscribe((response)=> {
     this.data = response;
 
     //isolate location key to use for next call
     this.getkey = this.data[0].Key;
-
+    console.log(this.getkey)
     //set key in the Apiservice file
     this.http.citykey = this.getkey;
     this.http.getForcast().subscribe((res)=>{
@@ -73,15 +74,13 @@ export class ForcastComponent implements OnInit {
         this.forcast[0].Dates.push(this.dates[i]);
       }
       console.log(this.forcast);
-
     })
-    
   });
 
-  }
+}
 
   ngOnInit(): void {
-    
+  this.searchCity('Cape Town')
   }
 
 }

@@ -16,6 +16,6 @@ export class ServiceService {
   }
 
   getForcast() {
-    return this.http.get(environment.forcastUrl + `${this.citykey}` + `?apikey=${this.key}&details=true`)
+    return this.http.get(environment.forcastUrl + `${this.citykey}` + `?apikey=${this.key}&details=true&metric=true`)
   }
 }

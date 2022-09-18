@@ -3,54 +3,61 @@
         <form [formGroup]="FormGroup" class="example-form d-flex justify-content-center">
             <div class="sesrch-bar mt-5 mb-5" appearance="fill">
                 <input formControlName="search">    
-                <div class="icon"><mat-icon (click)="searchCity(FormGroup)">search</mat-icon></div>         
+                <div class="icon"><mat-icon (click)="searchCity(FormGroup.get('search')?.value)">search</mat-icon></div>         
             </div>
         </form>
-        <div *ngFor="let items of forcast">
+        <!-- <div *ngFor="let items of forcast">
             <div class="carousel" *ngFor ="let in of counter(5); let i = index">
                 <li>{{items.Dates[i].Date}}</li>
                 <li>{{items.DailyForecasts[i].Temperature.Maximum.Value}}</li> 
                 <li>{{items.DailyForecasts[i].Temperature.Minimum.Value}}</li>
                 <img src = "assets/icons/{{items.DailyForecasts[i].Day.Icon}}.svg">
             </div>
-        </div>
-        <div class="container d-flex justify-content-center">
-            <mat-card  class="example-card">
+        </div> -->
+        <div *ngFor="let items of forcast" class="container d-flex justify-content-center">
+            <mat-card *ngFor ="let in of counter(1); let i = index" class="example-card">
                 <div class="d-flex justify-content-around">
                   <div class="title">
                     <div class="date-text">
-                      <h3 class="current mb-0">Current Weather</h3>
+                      <h3 class="current mb-0">Day Weather</h3>
+                      <h2 class="today mb-0">{{items.Dates[i].Date}}</h2>
                       <h2>{{current_time}}PM</h2>
                     </div>
                     <div class="temp-container d-flex">
                       <div class="weatherIcon">
-                        <img src= "assets/icons/6.svg">
+                        <img src= "assets/icons/{{items.DailyForecasts[i].Day.Icon}}.svg">
                       </div>
                       <div class="temperature">
-                        <p class="temp">33°</p>
+                        <p class="temp">{{items.DailyForecasts[i].Temperature.Maximum.Value.toFixed(0)}}°<span>HI</span></p>
                       </div>
                       
                     </div>
-                    <p>Cloudy</p>
+                    <p>{{items.DailyForecasts[i].Day.LongPhrase}}</p>
                   </div>
                   <div class="feel">
-                    <p>Real Feel: 33°</p>
-                    <p>Shade Feel: 20°</p>
+                    <div class="feel-container">
+                      <p>Real Feel: {{items.DailyForecasts[i].RealFeelTemperature.Maximum.Value.toFixed(0)}}°</p>
+                      <p class="sub">{{items.DailyForecasts[i].RealFeelTemperature.Maximum.Phrase}}</p>
+                    </div>
+                    <div class="feel-container">
+                      <p>Shade Feel: {{items.DailyForecasts[i].RealFeelTemperatureShade.Maximum.Value.toFixed(0)}}°</p>
+                      <p class="sub">{{items.DailyForecasts[i].RealFeelTemperatureShade.Maximum.Phrase}}</p>
+                    </div>
                   </div>
                 </div>
                 <div class="item-div d-flex justify-content-between">
                   <div class="details">
                     <div class="items">
                       <p>Max UV Index</p>
-                      <p>1 Low</p>
+                      <p>{{items.DailyForecasts[i].AirAndPollen[5].Value}} {{items.DailyForecasts[i].AirAndPollen[5].Category}}</p>
                     </div>
                     <div class="items">
                       <p>Wind</p>
-                      <p>W 11 km/h</p>
+                      <p>W {{(items.DailyForecasts[i].Day.Wind.Speed.Value).toFixed(0)}} km/h</p>
                     </div>
                     <div class="items">
                       <p>Wind Gusts</p>
-                      <p>12 km/h</p>
+                      <p>{{(items.DailyForecasts[i].Day.WindGust.Speed.Value).toFixed(0)}} km/h</p>
                     </div>
                     <div class="items">
                       <p>Humidity</p>
@@ -63,20 +70,20 @@
                   </div>
                   <div class="more-detail">
                     <div class="items">
-                      <p>Dew Point</p>
-                      <p>15°C</p>
+                      <p>Air Quality</p>
+                      <p>{{items.DailyForecasts[i].AirAndPollen[0].Category}}</p>
                     </div>
                     <div class="items">
-                      <p>Pressure</p>
-                      <p>↔1010 mb</p>
+                      <p>Precipitation Intensity</p>
+                      <p>{{items.DailyForecasts[i].Day.PrecipitationIntensity}}</p>
                     </div>
                     <div class="items">
                       <p>Cloud Cover</p>
-                      <p>80%</p>
+                      <p>{{items.DailyForecasts[i].Day.CloudCover}}%</p>
                     </div>
                     <div class="items">
-                      <p>Visibility</p>
-                      <p>16 km</p>
+                      <p>Hours of sun</p>
+                      <p>{{items.DailyForecasts[i].HoursOfSun.toFixed(0)}}h</p>
                     </div>
                     <div class="items">
                       <p>Cloud Ceiling</p>
